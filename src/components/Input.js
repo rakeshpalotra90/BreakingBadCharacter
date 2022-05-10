@@ -21,7 +21,7 @@ const InputComponent = props => {
   } = props;
 
   return (
-    <View style={[styles.inputContainer, inputContainer]}>
+    <View style={[styles.inputContainer, inputContainer]} testID="input">
       <TextInput
         placeholder={placeholder}
         autoCapitalize="none"
@@ -33,7 +33,7 @@ const InputComponent = props => {
         {...props}
       />
       {showCancelIcon && (
-        <TouchableOpacity onPress={onPressCancel}>
+        <TouchableOpacity testID="clearSearch" onPress={onPressCancel}>
           <Image source={images.CANCEL} style={styles.cancelIcon} />
         </TouchableOpacity>
       )}

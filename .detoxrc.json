@@ -1,0 +1,64 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "e2e/config.json",
+  "skipLegacyWorkersInjection": true,
+  "specs": "e2e/tests",
+
+  "behavior": {
+    "init": {
+      "exposeGlobals": true
+    }
+  },
+  "apps": {
+    "ios.release": {
+      "name": "BreakingBadCharacter",
+      "type": "ios.app",
+      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/BreakingBadCharacter.app",
+      "build": "xcodebuild -workspace ios/BreakingBadCharacter.xcworkspace -scheme BreakingBadCharacter -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES"
+    },
+    "ios.debug": {
+      "name": "BreakingBadCharacter",
+      "type": "ios.app",
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/BreakingBadCharacter.app",
+      "build": "xcodebuild -workspace ios/BreakingBadCharacter.xcworkspace -scheme BreakingBadCharacter -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES"
+    },
+    "android.debug": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+      "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd .."
+    },
+    "android.release": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+      "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd .."
+    }
+  },
+  "devices": {
+    "simulator": {
+      "type": "ios.simulator",
+      "device": {
+        "type": "iPhone 11"
+      }
+    },
+    "emulator": {
+      "type": "android.emulator",
+      "device": {
+        "avdName": "Pixel_3a_API_30"
+      }
+    }
+  },
+  "configurations": {
+    "ios.sim.release": {
+      "device": "simulator",
+      "app": "ios.release"
+    },
+    "android.emu.debug": {
+      "device": "emulator",
+      "app": "android.debug"
+    },
+    "android.emu.release": {
+      "device": "emulator",
+      "app": "android.release"
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # BreakingBadCharacter
+
 ## Prerequisites
+
 - [Node JS > 12](https://nodejs.org/) and npm (Recommended: Use [nvm](https://github.com/nvm-sh/nvm))
 - [Watchman](https://facebook.github.io/watchman/)
 - [JDK >11](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -9,21 +11,26 @@
 ## Running the project
 
 - Clone this project
+
 ```
 git clone < https://github.com/rakeshpalotra90/BreakingBadCharacter.git >
 ```
+
 - Go to your project's root folder and run `yarn install`.
 - If you are using Xcode 13 or higher got to /ios and execute `pod install`
 - Run `npx react-native run-ios` or `npx react-native run-android` to start your application!
 - [Install NodeJS](https://nodejs.org/en/) on your computer.
 
 - [Install yarn](https://yarnpkg.com/en/docs/install) on your computer
-> Yarn is a dependency manager built by facebook and google. It is a more efficient and reliable (thanks to yarn.lock) alternative of npm.
 
-- Launch ``` yarn install``` command in a terminal opened in the project folder.
-> This command will look into the *package.json* file and install all the dependencies listed here.
+  > Yarn is a dependency manager built by facebook and google. It is a more efficient and reliable (thanks to yarn.lock) alternative of npm.
+
+- Launch ` yarn install` command in a terminal opened in the project folder.
+
+  > This command will look into the _package.json_ file and install all the dependencies listed here.
 
 - Install react-native-cli globally on your computer(if not installed)
+
 ```
 yarn global add react-native-cli
 
@@ -36,5 +43,15 @@ yarn global add react-native-cli
 - Then, run the project in executing on your project folder:
 
 ```
+
 react-native run-android
+
+```
+## Run test case in iOS
+
+- Go to .detoxrc.json file in project's root folder.
+- In devices > simulator > device > type place your available simulator name in place of iPhone 11
+- Go to your project's root folder and run `detox build -c ios.sim.release`
+- after build succeed run `detox test configuration ios.sim.release`
+
 ```

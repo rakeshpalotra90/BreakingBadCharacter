@@ -11,6 +11,7 @@ export const Button = ({
 }) => {
   return (
     <TouchableOpacity
+      testID="Apply"
       {...props}
       onPress={onPress}
       style={[styles.container, containerStyle]}>

@@ -92,6 +92,7 @@ const BadCharactersScreen = props => {
   const renderListItem = ({item, index}) => {
     return (
       <TouchableOpacity
+        testID={'itemID' + index}
         style={styles.imageContainer}
         onPress={() =>
           props.navigation.navigate('BadCharactersDetails', {
@@ -140,6 +141,7 @@ const BadCharactersScreen = props => {
             onChangeText={val => setSearchedCharacter(val)}
           />
           <TouchableOpacity
+            testID="filter"
             onPress={() => RBSheetRef?.current?.open()}
             style={styles.filterContainer}>
             <Image source={images.FILTER} style={styles.filter} />
@@ -172,6 +174,7 @@ const BadCharactersScreen = props => {
         }}>
         <View>
           <TouchableOpacity
+            testID="selectSeason"
             onPress={() => setShowSeasonList(!showSeasonList)}
             style={styles.dropdown}>
             <Text
@@ -185,6 +188,7 @@ const BadCharactersScreen = props => {
               {seasonList.map((item, i) => {
                 return (
                   <TouchableOpacity
+                    testID={'item' + i}
                     key={i}
                     style={styles.dropdownItem}
                     onPress={() => {
